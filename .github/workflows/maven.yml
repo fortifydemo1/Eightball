@@ -30,10 +30,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: logs
-          path: 'C:\Desk\Logs'
-            # Add paths to the log files or directories you want to store as artifacts
-            path/to/logfile1.txt
-            path/to/directory
+          path: path/to/your/log/files # Replace with the actual location of your log files
 
       - name: Start Fortify-SAST
         uses: actions/checkout@v2
