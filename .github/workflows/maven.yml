@@ -40,7 +40,7 @@ jobs:
         uses: fortify/gha-setup-scancentral-client@v1
         with:
           version: '21.2.0'
-          worker-auth-token: ${{ secrets.WORKER_AUTH_TOKEN }}
+          client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}
 
       - name: Perform SAST Scan
         run: scancentral -url $SC_CONTROLLER_URL start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
