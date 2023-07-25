@@ -43,10 +43,10 @@ jobs:
           client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}
 
       - name: Perform SAST Scan
-        run: scancentral -url http://10.52.93.12:8060/scancentral-ctrl start -bt mvn -upload -application Eightball -version 1.0 -uptoken 0ec4e089-76fe-48a5-8f13-a88b8a256c35
-        #env: 
-         # SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
-          #SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
-          #APPLICATION: "Eightball"
-          #VERSION: "1.0"
-          #BUILD_OPTS: "-bt mvn"
+        run: scancentral -url ${SC_CONTROLLER_URL} start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
+        env: 
+         SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
+         SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
+         APPLICATION: "Eightball"
+         VERSION: "1.0"
+         BUILD_OPTS: "-bt mvn"
