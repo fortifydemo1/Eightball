@@ -44,7 +44,7 @@ jobs:
           client-auth-token: ${{ secrets.CLIENT_AUTH_TOKEN }}
 
       - name: Perform SAST Scan
-        run: scancentral -sscurl "http://10.52.93.113:8085/ssc" start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
+        run: scancentral -sscurl "http://10.52.93.113:8085/ssc" -ssctoken $SSC_UPLOAD_TOKEN start $BUILD_OPTS -upload -application $APPLICATION -version $VERSION -uptoken $SSC_UPLOAD_TOKEN
 
         env: 
          #SC_CONTROLLER_URL: ${{ secrets.SC_CONTROLLER_URL }}
